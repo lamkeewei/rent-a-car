@@ -1,0 +1,95 @@
+<div class="container navbar-clear">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Add Listing</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form name="listingForm" ng-submit="addListing()" class="form-horizontal" novalidate>
+        <div class="form-group">
+          <label class="control-label col-md-3">Car Model: </label>
+          <div class="col-md-9">
+            <input ng-model="newListing.carModel" type="text" class="form-control" placeholder="Car Model" required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Rental Fees: </label>
+          <div class="col-md-9">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input ng-model="newListing.rates" type="number" class="form-control" placeholder="Rental Charges" required/>
+              <span class="input-group-addon">per hour</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Description: </label>
+          <div class="col-md-9">
+            <textarea ng-model="newListing.description" rows="5" style="resize: none" class="form-control" required></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Location: </label>
+          <div class="col-md-9">
+            <div class="input-group">
+              <input ng-model="searchLocation" type="text" class="form-control" placeholder="Enter location description" required/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="geocode()">
+                  <span class="glyphicon glyphicon-search"></span>
+                </button> 
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-3">Image: </label>
+          <div class="col-md-9">
+            <input style="padding-top: 10px" id="fileInput" type="file" onchange="previewFile()" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-9">
+            <img id="imgPreview" class="preview" src="" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-9 col-md-offset-3">
+            <input type="submit" type="button" class="btn btn-success btn-block" value="Add Listing" />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <div add-map id="selectLoc"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var previewFile = function() {
+    var preview = document.getElementById('imgPreview');
+    var file    = document.getElementById('fileInput').files[0];
+    var hidden = document.getElementById('imgDataUri');
+    var reader  = new FileReader();
+
+    reader.onloadend = function () {
+      preview.src = reader.result;
+      $('#imageDataUri').val(reader.result);
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  };
+</script>

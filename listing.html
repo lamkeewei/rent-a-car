@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="EN">
+  <head>
+    <title>Make a Booking</title>
+    <meta charset=utf-8>
+    <meta name=description content="">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  </head>
+  <body ng-app="myApp">
+    <ng-include src="'partials/navbar.html'"></ng-include>
+
+    <div class="container navbar-clear">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 id="main-title">Listing Title</h1>
+          <h2 id="sub-title"><small>Singapore, Bedok</small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <img class="main-picture" src="images/car2.jpg" />
+        </div>
+        
+        <div class="col-md-4 clear-padding">
+          <div class="info-box">
+            <small>From</small>
+            <h1 class="price-display">$80<small> / hr</small></h1>
+            <div class="form-group">
+              <label class="control-label">Booking Date: </label>
+              <input type="date" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label class="control-label">Start Time: </label>
+              <select class="form-control">
+                <option value="0">12:00 AM</option>
+                <option value="1">1:00 AM</option>
+                <option value="2">2:00 AM</option>
+                <option value="3">3:00 AM</option>
+                <option value="4">4:00 AM</option>
+                <option value="5">5:00 AM</option>
+                <option value="6">6:00 AM</option>
+                <option value="7">7:00 AM</option>
+                <option value="8">8:00 AM</option>
+                <option value="9">9:00 AM</option>
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">1:00 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">3:00 PM</option>
+                <option value="16">4:00 PM</option>
+                <option value="17">5:00 PM</option>
+                <option value="18">6:00 PM</option>
+                <option value="19">7:00 PM</option>
+                <option value="20">8:00 PM</option>
+                <option value="21">9:00 PM</option>
+                <option value="22">10:00 PM</option>
+                <option value="23">11:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="control-label">End Time: </label>
+              <select class="form-control">
+                <option value="0">12:00 AM</option>
+                <option value="1">1:00 AM</option>
+                <option value="2">2:00 AM</option>
+                <option value="3">3:00 AM</option>
+                <option value="4">4:00 AM</option>
+                <option value="5">5:00 AM</option>
+                <option value="6">6:00 AM</option>
+                <option value="7">7:00 AM</option>
+                <option value="8">8:00 AM</option>
+                <option value="9">9:00 AM</option>
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">1:00 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">3:00 PM</option>
+                <option value="16">4:00 PM</option>
+                <option value="17">5:00 PM</option>
+                <option value="18">6:00 PM</option>
+                <option value="19">7:00 PM</option>
+                <option value="20">8:00 PM</option>
+                <option value="21">9:00 PM</option>
+                <option value="22">10:00 PM</option>
+                <option value="23">11:00 PM</option>
+              </select>
+            </div>
+            
+            <button type="button" class="btn btn-primary btn-block">Make Booking</button>
+          </div>
+
+          <div class="info-box">
+            <h4>Description:</h4>
+            <p>
+              Very good to drive. Low mileage. Stylish leather interior.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!--Firebase-->
+    <script src="components/firebase/firebase.js"></script>
+    <!-- AngularJS -->
+    <script src="components/angular/angular.min.js"></script>
+    <!-- AngularFire -->
+    <script src="components/angularfire/angularfire.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Leaflet -->
+    <script src="components/leaflet-dist/leaflet.js"></script>
+
+    <script src="javascripts/app.js"></script>
+  </body>
+</html>

@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="EN">
   <head>
-    <title>Title Page</title>
+    <title>Map</title>
     <meta charset=utf-8>
     <meta name=description content="">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="components/leaflet-dist/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
   </head>
-  <body>
-    <h1 class="text-center">Hello World</h1>
-
+  
+  
+  <body ng-app="myApp">
+    <ng-include src="'partials/navbar.html'"></ng-include>
+    <div ng-view></div>
     <!-- jQuery -->
-    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="components/jquery/jquery.min.js"></script>
+    <!--Firebase-->
+    <script src="components/firebase/firebase.js"></script>
+    <!-- AngularJS -->
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-route/angular-route.min.js"></script>
+    <!-- AngularFire -->
+    <script src="components/angularfire/angularfire.min.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Leaflet -->
+    <script src="components/leaflet-dist/leaflet.js"></script>
+    
+    <script type="text/javascript">
+      var map = '';
+    </script>
+    <script src="javascripts/app.js"></script>
   </body>
 </html>

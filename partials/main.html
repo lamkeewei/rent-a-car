@@ -1,0 +1,42 @@
+<div class="container-full">
+  <div main-map="Listings" id="map" class="hidden-xs hidden-sm col-md-5 navbar-clear"></div>
+
+  <div id="listings" class="navbar-clear col-md-7 col-md-offset-5" ng-controller="ListingCtrl">
+    <div class="row">
+      <div class="col-md-12">
+        <form method="POST" role="form">
+          <legend>
+            <h3>
+              Cars Available for Rent {{carModel}}
+              <button type="button" class="pull-right btn btn-default">Reset</button> 
+            </h3>
+          </legend>
+          <!--
+          <div class="form-group">
+            <label class="control-label">Booking Date: </label>
+            <input type="date" class="form-control" placeholder="Start Date"/>
+          </div>
+          -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Search by model, location and price" ng-model="searchTerm" />
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="row grid">
+      <div ng-repeat="listing in Listings | orderByPriority | filter: searchTerm"class="grid-box col-md-6" ng-click="zoomToArea(listing.latLng)">
+        <img ng-src="{{listing.image}}" alt="car" />
+        <div class="clearfix listing-box">
+          <div class="car-title">
+            <small><strong>{{listing.carModel}}</strong></small><br/>
+            <small>{{listing.address}}</small>
+          </div>
+          <div class="car-price">
+            ${{listing.rates}}/hr
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

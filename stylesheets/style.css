@@ -1,8 +1,100 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.navbar{
+  background-color: white;
 }
 
-a {
-  color: #00B7FF;
+#listings{
+  border: solid gainsboro 1px;
+}
+
+#map{
+  height: 500px;
+  position: fixed;
+}
+
+.navbar-clear{
+  margin-top: 50px;
+}
+
+.grid-box{
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.grid-box img{
+  width: 100%;
+  display: block;
+}
+
+.row{
+  margin-bottom: 25px;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.listing-box{
+  border: solid 1px gainsboro;
+}
+
+body{
+  background-color: rgb(245, 245, 245);
+}
+
+.car-title{
+  width: 70%;
+  float: left;
+  padding: 10px;
+  border-right: solid gainsboro 1px;
+  background-color: white;
+}
+
+.car-price{
+  font-weight: bold;
+  width: 30%;
+  float: left;
+  padding: 10px;
+  text-align: center;
+  font-size: 18pt;
+}
+
+.main-picture{
+  width: 100%;
+}
+
+.price-display{
+  margin-top: 0; 
+  margin-bottom: 20px;
+}
+
+.info-box{
+  background-color: white;
+  border: solid gainsboro 1px;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+}
+
+#main-title{
+  margin-bottom: 0px;
+}
+
+#sub-title{
+  margin-top: 0px;
+}
+
+.clear-padding{
+  padding: 0px 0px;
+}
+
+.align-right{
+  text-align: right;
+}
+
+#selectLoc{
+  height: 500px;
+}
+
+.preview{
+  width: 50%;
 }
