@@ -1,0 +1,25 @@
+{
+  "name": "express-test",
+  "version": "0.0.0",
+  "authors": [
+    "lamkeewei <keewei.lam.2012@sis.smu.edu.sg>"
+  ],
+  "description": "Test express application",
+  "main": "/public/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3",
+    "d3": "~3.4.1",
+    "leaflet-dist": "~0.7.1",
+    "angularfire": "~0.6.0",
+    "firebase": "~1.0.2",
+    "angular-route": "~1.2.10"
+  }
+}

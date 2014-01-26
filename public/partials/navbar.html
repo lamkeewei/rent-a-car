@@ -1,0 +1,39 @@
+<nav ng-app="myApp" ng-controller="AuthCtrl" class="navbar navbar-fixed-top navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">Rent a Car</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Pick up location">
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <p ng-hide="loginObj.user === null" class="align-right navbar-text" >Logged in as {{loginObj.user.displayName}}</p>
+      <p ng-show="loginObj.user === null" class="align-right navbar-text" >Login to add listing</p>
+      <form ng-cloak class="navbar-form navbar-left" role="search">
+        <a href="#/add" ng-hide="loginObj.user === null" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Listing</a>
+        <button ng-show="loginObj.user === null" ng-click="loginUser()" style="margin-right: 10px" type="submit" class="btn btn-primary">
+          Login
+        </button>
+        <button ng-hide="loginObj.user === null" ng-click="logoutUser()" style="margin-right: 10px" type="submit" class="btn btn-primary">
+          Logout
+        </button>
+      </form>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<script src="../components/firebase-simple-login/firebase-simple-login.js"></script>
