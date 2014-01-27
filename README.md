@@ -51,4 +51,11 @@ _Initially, I wanted to use their geocoding API too, but I keep running into iss
 
 [Link to CloudMade](http://cloudmade.com/)
 
-### 
+### Google Geocoding API v2
+Although v2 is deprecated, but I've still used it as it is much easier to form the query. Will migrate to version 3 of the API when possible. 
+
+### Firebase (AngularFire)
+This is my main data store which I used to store my data. Firebase also provided for a easy way to implement login using Facebook.
+
+## Hosting Platform
+I have chosen Openshift as my hosting platform as it provides an easy way to deploy Node.js applications using a "push-to-deploy" concept. Action hooks during the different stages of deployment also makes it easy to control the deployment process. 
