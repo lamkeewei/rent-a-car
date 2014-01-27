@@ -105,3 +105,7 @@ body{
 .preview{
   width: 50%;
 }
+
+.grey-words{
+  color: grey;
+}

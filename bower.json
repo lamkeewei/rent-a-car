@@ -20,6 +20,7 @@
     "leaflet-dist": "~0.7.1",
     "angularfire": "~0.6.0",
     "firebase": "~1.0.2",
-    "angular-route": "~1.2.10"
+    "angular-route": "~1.2.10",
+    "font-awesome": "~4.0.3"
   }
 }

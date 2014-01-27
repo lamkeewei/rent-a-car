@@ -38,7 +38,11 @@ app.factory('Listings', ['$firebase', 'fbUrl', function($firebase, fbUrl){
 
 app.controller('ListingCtrl', ['$scope', 'Listings', '$location', '$filter', 
   function($scope, Listings, $location, $filter){
-  $scope.Listings = Listings;
+  $scope.showLoading = true;
+  Listings.$bind($scope, 'Listings').then(function(){
+    $scope.showLoading = false;
+  });
+
   $scope.showDetails = function(){
     $location.path()
   }
@@ -108,10 +112,11 @@ app.controller('CreateCtrl', ['$scope', 'Listings', '$http', '$location', '$root
     }
 }]);
 
-app.controller('BookingCtrl', ['$scope', 'Listings', '$routeParams', 
-  function($scope, Listings, $routeParams){
+app.controller('BookingCtrl', ['$scope', '$firebase', '$routeParams', 'fbUrl',  
+  function($scope, $firebase, $routeParams, fbUrl){
     var id = $routeParams.id;
-    $scope.listing = Listings[id];
+    var ref = new Firebase(fbUrl).child('Listings').child(id);
+    $scope.listing = $firebase(ref);
 }]);
 
 app.controller('AuthCtrl', ['$scope', '$firebaseSimpleLogin', 'fbUrl', '$location', '$rootScope', 
