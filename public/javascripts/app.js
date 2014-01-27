@@ -166,48 +166,50 @@ app.directive('addMap', function(){
   };
 });
 
-app.directive('mainMap', ['Listings', function(Listings){
+app.directive('mainMap', ['Listings', '$timeout', function(Listings, $timeout){
   return{
     restrict: 'A',
     scope: {},
-    link: function(scope, element, attrs){
-      map = L.map(attrs.id).setView([1.3667, 103.8], 12);
-      L.tileLayer('http://{s}.tile.cloudmade.com/a8c6a21cf9004641b8b047be28dac107/96931/256/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 18
-      }).addTo(map);
+    link: function(scope, element, attrs, ctrl){
+      $timeout(function(){
+        map = L.map(attrs.id).setView([1.3667, 103.8], 12);
+        L.tileLayer('http://{s}.tile.cloudmade.com/a8c6a21cf9004641b8b047be28dac107/96931/256/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 18
+        }).addTo(map);
 
-      var loadMarker = function(){
-        var markers = [];
-        angular.forEach(Listings.$getIndex(), function(value, key){
-          var latLng = Listings[value].latLng;
-          var m = L.marker(latLng).on('click', function(){
-            map.setView(latLng, 17);
+        var loadMarker = function(){
+          var markers = [];
+          angular.forEach(Listings.$getIndex(), function(value, key){
+            var latLng = Listings[value].latLng;
+            var m = L.marker(latLng).on('click', function(){
+              map.setView(latLng, 17);
+            });
+
+            markers.push(m);
           });
 
-          markers.push(m);
+          var points = L.layerGroup(markers);
+
+          points.addTo(map);
+
+          return points;
+        }
+        
+        Listings.$bind(scope, 'Listings').then(function(unbind){
+          var points = loadMarker();
+          var change = false;
+
+          scope.$watch('Listings', function(){
+            if(change){
+              points.clearLayers();
+            }
+
+            change = true;
+            points = loadMarker();
+          }, true);
         });
-
-        var points = L.layerGroup(markers);
-
-        points.addTo(map);
-
-        return points;
-      }
-      
-      Listings.$bind(scope, 'Listings').then(function(unbind){
-        var points = loadMarker();
-        var change = false;
-
-        scope.$watch('Listings', function(){
-          if(change){
-            points.clearLayers();
-          }
-
-          change = true;
-          points = loadMarker();
-        }, true);
-      });
+      }, 0);
 
       // navigator.geolocation.getCurrentPosition(function(position){
       //   var latLng = [position.coords.latitude, position.coords.longitude];
