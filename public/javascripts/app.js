@@ -43,6 +43,7 @@ app.controller('ListingCtrl', ['$scope', 'Listings', '$location', '$filter',
 
   Listings.$bind($scope, 'loadedData').then(function(unbind){
     $scope.showLoading = false;
+    unbind();
   });
 
   $scope.showDetails = function(){
