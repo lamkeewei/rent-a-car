@@ -26,7 +26,7 @@
     </div>
     <div class="row grid">
       <div ng-show="showLoading" class="text-center col-md-12">
-        <h3 class="grey-words"><i class="fa fa-spinner fa-spin"></i> Loading Listings...</h3>
+        <h4 class="grey-words"><i class="fa fa-spinner fa-spin"></i> Loading Listings...</h4>
       </div>
       <div ng-repeat="listing in Listings | orderByPriority | filter: searchTerm"class="grid-box col-md-6" ng-click="goToListing(listing.$id)">
         <div class="hide-overflow">
