@@ -8,8 +8,12 @@ var path = require('path');
 var fs = require('fs');
 var app = express();
 var cors = require('cors');
+
+var ipaddr  = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port    = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
 // all environments
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
+// app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -52,4 +56,4 @@ app.post('/upload', function(req, res){
 });
 
 server = require('http').createServer(app);
-server.listen(PORT, IPADDRESS);
+server.listen(port, ipaddr);
