@@ -50,6 +50,10 @@ app.controller('ListingCtrl', ['$scope', 'Listings', '$location', '$filter',
   $scope.goToListing = function(id){
     $location.path('listing/' + id);
   }
+
+  $scope.resetView = function(){
+    map.setView([1.3667, 103.8], 12);
+  }
 }]);
 
 app.controller('CreateCtrl', ['$scope', 'Listings', '$http', '$location', '$rootScope', 
