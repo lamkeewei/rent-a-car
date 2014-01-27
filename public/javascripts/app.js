@@ -20,9 +20,9 @@ app.config(['$routeProvider', function($routeProvider){
         templateUrl: 'partials/add.html',
         controller: 'CreateCtrl'
       })
-    .when('/listing', 
+    .when('/listing/:id', 
       {
-        templateUrl: 'listing.html',
+        templateUrl: 'partials/listing.html',
         controller: 'BookingCtrl'
       })
     .otherwise('/',
@@ -45,6 +45,10 @@ app.controller('ListingCtrl', ['$scope', 'Listings', '$location', '$filter',
 
   $scope.zoomToArea = function(latLng){
     map.setView(latLng, 17);
+  }
+
+  $scope.goToListing = function(id){
+    $location.path('listing/' + id);
   }
 }]);
 
@@ -100,8 +104,10 @@ app.controller('CreateCtrl', ['$scope', 'Listings', '$http', '$location', '$root
     }
 }]);
 
-app.controller('BookingCtrl', ['$scope', 'Listings', function($scope, Listings){
-  
+app.controller('BookingCtrl', ['$scope', 'Listings', '$routeParams', 
+  function($scope, Listings, $routeParams){
+    var id = $routeParams.id;
+    $scope.listing = Listings[id];
 }]);
 
 app.controller('AuthCtrl', ['$scope', '$firebaseSimpleLogin', 'fbUrl', '$location', '$rootScope', 
