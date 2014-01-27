@@ -39,7 +39,9 @@ app.factory('Listings', ['$firebase', 'fbUrl', function($firebase, fbUrl){
 app.controller('ListingCtrl', ['$scope', 'Listings', '$location', '$filter', 
   function($scope, Listings, $location, $filter){
   $scope.showLoading = true;
-  Listings.$bind($scope, 'Listings').then(function(){
+  $scope.Listings = Listings;
+
+  Listings.$bind($scope, 'loadedData').then(function(unbind){
     $scope.showLoading = false;
   });
 
