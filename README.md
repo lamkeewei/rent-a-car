@@ -1,7 +1,7 @@
 Rent A Car
 ==========
 
-## What is it?
+## What is it? 
 In Singapore where cars cost more than a fortune, Rent-A-Car seeks to allow people to earn some money from their personal vehicles to offset for the high cost of maintaining it. Typical usage of a private vehicle goes something like this: drive to work, park at office, work for 6 hours and drive home. More than half the time, the vehicles are left unused. Rent-A-Car hopes to connect people with ad-hoc need for cars and owners of vehicles! 
 
 ## Technologies Used
