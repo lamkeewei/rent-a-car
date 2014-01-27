@@ -164,14 +164,37 @@ app.directive('mainMap', ['Listings', function(Listings){
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 18
       }).addTo(map);
-      
-      Listings.$bind(scope, 'Listings').then(function(unbind){
+
+      var loadMarker = function(){
+        var markers = [];
         angular.forEach(Listings.$getIndex(), function(value, key){
           var latLng = Listings[value].latLng;
-          L.marker(latLng).on('click', function(){
+          var m = L.marker(latLng).on('click', function(){
             map.setView(latLng, 17);
-          }).addTo(map);
+          });
+
+          markers.push(m);
         });
+
+        var points = L.layerGroup(markers);
+
+        points.addTo(map);
+
+        return points;
+      }
+      
+      Listings.$bind(scope, 'Listings').then(function(unbind){
+        var points = loadMarker();
+        var change = false;
+
+        scope.$watch('Listings', function(){
+          if(change){
+            points.clearLayers();
+          }
+
+          change = true;
+          points = loadMarker();
+        }, true);
       });
 
       // navigator.geolocation.getCurrentPosition(function(position){
