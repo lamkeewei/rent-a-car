@@ -51,4 +51,5 @@ app.post('/upload', function(req, res){
   });
 });
 
-app.listen(app.get('port'));
+server = require('http').createServer(app);
+server.listen(PORT, IPADDRESS);
