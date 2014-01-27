@@ -2,7 +2,7 @@ Rent A Car
 ==========
 
 ## What is it?
-In Singapore where cars cost more than fortune, Rent-A-Car seeks to allow people to earn some money from their personal vehicles to offset for the high cost of maintaining it. Typical usage of a private vehicle goes something like this: drive to work, park at office, work for 6 hours and drive home. More than half the time, the vehicles are left unused. Rent-A-Car hopes to connect people with ad-hoc need for cars and owners of vehicles! 
+In Singapore where cars cost more than a fortune, Rent-A-Car seeks to allow people to earn some money from their personal vehicles to offset for the high cost of maintaining it. Typical usage of a private vehicle goes something like this: drive to work, park at office, work for 6 hours and drive home. More than half the time, the vehicles are left unused. Rent-A-Car hopes to connect people with ad-hoc need for cars and owners of vehicles! 
 
 ## Technologies Used
 A large variety of open source softwares/tools have been used in building this application. They can be broadly categorized into developer tools, front-end libraries, back-end libraries, third-party APIs and hosting platforms.
@@ -50,3 +50,5 @@ CloudMade is a company that provides geo-related APIs. Their services includes, 
 _Initially, I wanted to use their geocoding API too, but I keep running into issues with CORS despite me setting the appropriate headers already. If anyone can shed some light on this, it will be greatly appreciated..._
 
 [Link to CloudMade](http://cloudmade.com/)
+
+### 
