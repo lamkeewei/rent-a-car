@@ -26,7 +26,9 @@
     </div>
     <div class="row grid">
       <div ng-repeat="listing in Listings | orderByPriority | filter: searchTerm"class="grid-box col-md-6" ng-click="goToListing(listing.$id)">
-        <img ng-src="{{listing.image}}" alt="car" />
+        <div class="hide-overflow">
+          <img ng-src="{{listing.image}}" alt="car" />
+        </div>
         <div class="clearfix listing-box">
           <div class="car-title">
             <small><strong>{{listing.carModel}}</strong></small><br/>

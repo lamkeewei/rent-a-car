@@ -1,3 +1,8 @@
+.hide-overflow{
+  height: 200px;
+  overflow: hidden;
+}
+
 .navbar{
   background-color: white;
 }
@@ -44,6 +49,8 @@ body{
 
 .car-title{
   width: 70%;
+  height: 60px;
+  overflow: hidden;
   float: left;
   padding: 10px;
   border-right: solid gainsboro 1px;
